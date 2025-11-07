@@ -53,7 +53,7 @@ export const siteConfig = {
     docs: "https://heroui.com",
     discord: "https://discord.gg/9b6yyZKmH4",
     sponsor: "https://patreon.com/jrgarciadev",
-    login: "localhost:3000/login",
-    register:"localhost:3000/register",
+    login: "https://adriano-halloween.onrender.com/register",
+    register:"https://adriano-halloween.onrender.com/register",
   },
 };
