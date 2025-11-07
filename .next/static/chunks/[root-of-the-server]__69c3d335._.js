@@ -571,7 +571,7 @@ function Register() {
                 timeout: 4000
             });
             setTimeout(()=>{
-                router.push("/login");
+                router.push("/");
             }, 2000);
             setSubmitted(result);
         } catch (err) {
@@ -730,7 +730,6 @@ function Register() {
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                         type: "button",
                                         className: "text-blue-600 hover:underline cursor-pointer",
-                                        onClick: ()=>router.push("/registrado"),
                                         children: "Faça login"
                                     }, void 0, false, {
                                         fileName: "[project]/pages/register/index.tsx",
@@ -762,13 +761,13 @@ function Register() {
                             children: JSON.stringify(submitted, null, 2)
                         }, void 0, false, {
                             fileName: "[project]/pages/register/index.tsx",
-                            lineNumber: 232,
+                            lineNumber: 231,
                             columnNumber: 29
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/pages/register/index.tsx",
-                    lineNumber: 231,
+                    lineNumber: 230,
                     columnNumber: 11
                 }, this)
             ]

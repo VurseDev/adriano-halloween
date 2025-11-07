@@ -107,7 +107,7 @@ export default function Register() {
       });
 
       setTimeout(() => {
-        router.push("/login");
+        router.push("/");
       }, 2000);
 
       setSubmitted(result);
@@ -219,7 +219,6 @@ export default function Register() {
               <button
                 type="button"
                 className="text-blue-600 hover:underline cursor-pointer"
-                onClick={() => router.push("/registrado")}
               >
                 Faça login
               </button>
