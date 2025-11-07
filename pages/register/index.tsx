@@ -3,8 +3,6 @@ import { useRouter } from "next/navigation";
 import {
   Form,
   Input,
-  Select,
-  SelectItem,
   Checkbox,
   Button,
   Image,
@@ -13,13 +11,10 @@ import {
 
 interface FormData {
   name: string;
-  email: string;
   password: string;
-  country: string;
   terms: string;
 }
 
-// Use Record type for ValidationErrors compatibility
 type Errors = Record<string, string>;
 
 export default function Register() {
@@ -29,40 +24,48 @@ export default function Register() {
   const [errors, setErrors] = React.useState<Errors>({});
   const [isLoading, setIsLoading] = React.useState(false);
 
-  // Real-time password validation
-  const getPasswordError = (value: string): string | null => {
-    if (value.length < 4) {
-      return "Senha precisa ter 4 caracteres ou mais";
-    }
-    if ((value.match(/[A-Z]/g) || []).length < 1) {
-      return "Senha precisa de pelo menos uma letra em caixa alta";
-    }
-    if ((value.match(/[^a-z]/gi) || []).length < 1) {
-      return "Senha necessita pelo menos um simbolo";
-    }
+  React.useEffect(() => {
+  const audio = new Audio('/piano-song.mp3');
+  audio.loop = true;
+  audio.volume = 0.8;
 
-    return null;
+  // Function to play when user interacts
+  const enableAudio = () => {
+    audio.play().catch(err => {
+      console.warn("Autoplay prevented:", err);
+    });
+    // Remove event listeners so it only runs once
+    document.removeEventListener("click", enableAudio);
+    document.removeEventListener("scroll", enableAudio);
+    document.removeEventListener("keydown", enableAudio);
   };
+
+  // Add listeners for any user interaction
+  document.addEventListener("click", enableAudio);
+  document.addEventListener("scroll", enableAudio);
+  document.addEventListener("keydown", enableAudio);
+
+  // Cleanup on unmount
+  return () => {
+    audio.pause();
+    audio.currentTime = 0;
+    document.removeEventListener("click", enableAudio);
+    document.removeEventListener("scroll", enableAudio);
+    document.removeEventListener("keydown", enableAudio);
+  };
+}, []);
 
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
     
-    // Convert FormData to plain object with proper string conversion
     const data: FormData = {
       name: String(formData.get('name') || ''),
-      email: String(formData.get('email') || ''),
       password: String(formData.get('password') || ''),
-      country: String(formData.get('country') || ''),
       terms: String(formData.get('terms') || ''),
     };
 
-    // Custom validation checks
     const newErrors: Errors = {};
-
-    // Password validation
-    const passwordError = getPasswordError(data.password);
-    if (passwordError) newErrors.password = passwordError;
 
     if (data.name === "admin") newErrors.name = "ta facil";
     if (data.terms !== "true") newErrors.terms = "Por favor aceite os termos.";
@@ -87,7 +90,6 @@ export default function Register() {
       if (!res.ok) {
         setErrors({ api: result.error || "Erro ao registrar" });
         
-        // Toast de erro
         addToast({
           title: "Erro no Registro",
           description: result.error || "Erro ao registrar",
@@ -97,7 +99,6 @@ export default function Register() {
         return;
       }
 
-      // Toast de sucesso
       addToast({
         title: "Registro realizado com sucesso!",
         description: "Bem-vindo ao Atlas!",
@@ -105,7 +106,6 @@ export default function Register() {
         timeout: 4000,
       });
 
-      // Redirect to login after successful registration
       setTimeout(() => {
         router.push("/login");
       }, 2000);
@@ -115,7 +115,6 @@ export default function Register() {
       console.error(err);
       setErrors({ api: "Erro de conexão com o servidor" });
       
-      // Toast de erro de conexão
       addToast({
         title: "Erro de Conexão",
         description: "Erro de conexão com o servidor",
@@ -127,7 +126,6 @@ export default function Register() {
     }
   };
 
-  // Helper function to remove error for a specific field
   const removeError = (fieldName: string) => {
     setErrors(prev => {
       const newErrors = { ...prev };
@@ -145,23 +143,21 @@ export default function Register() {
         onSubmit={onSubmit}
       >
          <div className="flex flex-col gap-4 max-w-md">
-                {/* Logo and Brand Name Section */}
-                <div className="flex flex-col items-center gap-3 mb-6">
-                  <div className="flex items-center gap-4">
-                    <Image
-                      src="./logo.png"
-                      alt="Company Logo"
-                      width={130}
-                      height={80}
-                      isBlurred
-                    />
-                    <h1 className="text-5xl font-bold text-foreground">
-                      Atlas
-                    </h1>
-                  </div>
-                </div>
+          <div className="flex flex-col items-center gap-3 mb-6">
+            <div className="flex items-center gap-4">
+              <Image
+                src="../logo.png"
+                alt="Company Logo"
+                width={130}
+                height={80}
+                isBlurred
+              />
+              <h1 className="text-5xl font-bold text-foreground">
+                SORTEIO
+              </h1>
+            </div>
+          </div>
         
-          
           <Input
             isRequired
             errorMessage={errors.name}
@@ -174,43 +170,15 @@ export default function Register() {
 
           <Input
             isRequired
-            errorMessage={errors.email}
-            label="Email"
-            labelPlacement="outside"
-            name="email"
-            placeholder="Digite seu Email"
-            type="email"
-            onValueChange={() => removeError('email')}
-          />
-
-          <Input
-            isRequired
-            errorMessage={getPasswordError(password) || undefined}
-            isInvalid={getPasswordError(password) !== null}
-            label="Senha"
+            label="Turma"
             labelPlacement="outside"
             name="password"
-            placeholder="Digite sua Senha"
-            type="password"
+            placeholder="Digite sua Turma"
+            type="text"
             value={password}
             onValueChange={setPassword}
           />
-
-          <Select
-            isRequired
-            label="País"
-            labelPlacement="outside"
-            name="country"
-            placeholder="Escolha seu país"
-          >
-            <SelectItem key="br">Brasil</SelectItem>
-            <SelectItem key="ar">Argentina</SelectItem>
-            <SelectItem key="us">United States</SelectItem>
-            <SelectItem key="ca">Canada</SelectItem>
-            <SelectItem key="uk">United Kingdom</SelectItem>
-            <SelectItem key="au">Australia</SelectItem>
-          </Select>
-
+          
           <Checkbox
             isRequired
             classNames={{
@@ -237,8 +205,7 @@ export default function Register() {
 
           <div className="flex gap-4">
             <Button 
-              className="w-full" 
-              color="primary" 
+              className="bg-gradient-to-tr from-[#FF705B] to-[#FFB457] text-white shadow-lg hover:shadow-2xl font-semibold px-4 py-2 rounded-full inline-flex items-center justify-center w-full" 
               type="submit"
               isLoading={isLoading}
             >
@@ -246,14 +213,13 @@ export default function Register() {
             </Button>
           </div>
 
-          {/* Navigation link to login */}
           <div className="text-center mt-4">
             <p className="text-sm text-default-500">
               Já tem uma conta?{" "}
               <button
                 type="button"
                 className="text-blue-600 hover:underline cursor-pointer"
-                onClick={() => router.push("/login")}
+                onClick={() => router.push("/registrado")}
               >
                 Faça login
               </button>

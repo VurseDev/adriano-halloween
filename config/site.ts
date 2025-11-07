@@ -9,16 +9,8 @@ export const siteConfig = {
       href: "/",
     },
     {
-      label: "Login",
-      href: "/login",
-    },
-    {
-      label: "Register",
+      label: "Participar",
       href: "/register",
-    },
-    {
-      label: "About",
-      href: "/about",
     },
   ],
   navMenuItems: [

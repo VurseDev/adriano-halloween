@@ -15,15 +15,15 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   }
 
   try {
-    const { name, email, password, country } = req.body;
+    const { name, password } = req.body;
 
-    if (!name || !email || !password) {
+    if (!name || !password) {
       return res.status(400).json({ error: "Missing fields" });
     }
 
     await pool.query(
-      "INSERT INTO users (name, email, password, country) VALUES ($1, $2, $3, $4)",
-      [name, email, password, country]
+      "INSERT INTO users (username, turma) VALUES ($1, $2)",
+      [name, password]
     );
 
     return res.status(200).json({ success: true, message: "User saved!" });
