@@ -1483,6 +1483,7 @@ var _s = __turbopack_context__.k.signature();
 function IndexPage() {
     _s();
     const [flash, setFlash] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$index$2e$js__$5b$client$5d$__$28$ecmascript$29$__["useState"])(false);
+    const [bgAudio, setBgAudio] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$index$2e$js__$5b$client$5d$__$28$ecmascript$29$__["useState"])(null);
     // 🎵 Background music
     __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$index$2e$js__$5b$client$5d$__$28$ecmascript$29$__["default"].useEffect({
         "IndexPage.useEffect": ()=>{
@@ -1502,6 +1503,7 @@ function IndexPage() {
             document.addEventListener("click", enableAudio);
             document.addEventListener("scroll", enableAudio);
             document.addEventListener("keydown", enableAudio);
+            setBgAudio(audio);
             return ({
                 "IndexPage.useEffect": ()=>{
                     audio.pause();
@@ -1515,13 +1517,20 @@ function IndexPage() {
     }["IndexPage.useEffect"], []);
     // 🍬 Trick or Treat button action
     const handleTrickOrTreat = ()=>{
-        const sound = new Audio("scream-1.mp3");
-        sound.volume = 1;
-        sound.play().catch((err)=>console.warn("Sound blocked:", err));
+        if (bgAudio) {
+            bgAudio.pause();
+            bgAudio.currentTime = 0;
+        }
+        const trickSound = new Audio("/scream-1.mp3");
+        trickSound.volume = 1;
+        trickSound.currentTime = 0;
+        trickSound.play().catch((err)=>console.warn("Trick sound blocked:", err));
+        requestAnimationFrame(()=>{
+            setFlash(true);
+            setTimeout(()=>setFlash(false), 1200); // flash lasts ~1.2s
+        });
         // vibrate on phones
         if (navigator.vibrate) navigator.vibrate(200);
-        setFlash(true);
-        setTimeout(()=>setFlash(false), 1500);
     };
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$layouts$2f$default$2e$tsx__$5b$client$5d$__$28$ecmascript$29$__["default"], {
         children: [
@@ -1536,7 +1545,7 @@ function IndexPage() {
                                 children: " "
                             }, void 0, false, {
                                 fileName: "[project]/pages/index.tsx",
-                                lineNumber: 57,
+                                lineNumber: 68,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1546,14 +1555,14 @@ function IndexPage() {
                                 children: "HALLOWEEN 2 REG CINCO "
                             }, void 0, false, {
                                 fileName: "[project]/pages/index.tsx",
-                                lineNumber: 58,
+                                lineNumber: 69,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("br", {
                                 className: "jsx-89e214199bb1330a"
                             }, void 0, false, {
                                 fileName: "[project]/pages/index.tsx",
-                                lineNumber: 61,
+                                lineNumber: 72,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1563,13 +1572,13 @@ function IndexPage() {
                                 children: "Participe Agora!"
                             }, void 0, false, {
                                 fileName: "[project]/pages/index.tsx",
-                                lineNumber: 62,
+                                lineNumber: 73,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/pages/index.tsx",
-                        lineNumber: 56,
+                        lineNumber: 67,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1582,7 +1591,7 @@ function IndexPage() {
                                 children: "Participar"
                             }, void 0, false, {
                                 fileName: "[project]/pages/index.tsx",
-                                lineNumber: 66,
+                                lineNumber: 77,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -1591,7 +1600,7 @@ function IndexPage() {
                                 children: "🎃 Surpresa"
                             }, void 0, false, {
                                 fileName: "[project]/pages/index.tsx",
-                                lineNumber: 75,
+                                lineNumber: 86,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$heroui$2f$link$2f$dist$2f$chunk$2d$JOT4BT4P$2e$mjs__$5b$client$5d$__$28$ecmascript$29$__$3c$export__link_default__as__Link$3e$__["Link"], {
@@ -1606,20 +1615,20 @@ function IndexPage() {
                                         size: 20
                                     }, void 0, false, {
                                         fileName: "[project]/pages/index.tsx",
-                                        lineNumber: 87,
+                                        lineNumber: 98,
                                         columnNumber: 13
                                     }, this),
                                     "GitHub"
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/pages/index.tsx",
-                                lineNumber: 82,
+                                lineNumber: 93,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/pages/index.tsx",
-                        lineNumber: 65,
+                        lineNumber: 76,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1637,36 +1646,36 @@ function IndexPage() {
                                         children: "VurseDev"
                                     }, void 0, false, {
                                         fileName: "[project]/pages/index.tsx",
-                                        lineNumber: 95,
+                                        lineNumber: 106,
                                         columnNumber: 33
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/pages/index.tsx",
-                                lineNumber: 94,
+                                lineNumber: 105,
                                 columnNumber: 13
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/pages/index.tsx",
-                            lineNumber: 93,
+                            lineNumber: 104,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/pages/index.tsx",
-                        lineNumber: 92,
+                        lineNumber: 103,
                         columnNumber: 9
                     }, this),
                     flash && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         className: "jsx-89e214199bb1330a" + " " + "fixed inset-0 z-[9999] animate-flash pointer-events-none"
                     }, void 0, false, {
                         fileName: "[project]/pages/index.tsx",
-                        lineNumber: 102,
+                        lineNumber: 113,
                         columnNumber: 11
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/pages/index.tsx",
-                lineNumber: 55,
+                lineNumber: 66,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$jsx$2f$style$2e$js__$5b$client$5d$__$28$ecmascript$29$__["default"], {
@@ -1676,11 +1685,11 @@ function IndexPage() {
         ]
     }, void 0, true, {
         fileName: "[project]/pages/index.tsx",
-        lineNumber: 54,
+        lineNumber: 65,
         columnNumber: 5
     }, this);
 }
-_s(IndexPage, "64IE23q0Hmee5rpmelsNUSh2uDo=");
+_s(IndexPage, "BAb9XPbAjIRB3Ag4gfnFA+q9zzM=");
 _c = IndexPage;
 var _c;
 __turbopack_context__.k.register(_c, "IndexPage");
