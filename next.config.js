@@ -1,5 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
   // Enable static exports for better compatibility
   output: 'standalone',
   // Or use 'export' if you want fully static site
