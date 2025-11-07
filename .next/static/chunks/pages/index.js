@@ -1,6 +1,6 @@
 __turbopack_load_page_chunks__("/", [
-  "static/chunks/node_modules_@heroui_dom-animation_dist_index_mjs_58384508._.js",
-  "static/chunks/node_modules_next_b7851eaa._.js",
+  "static/chunks/node_modules_@heroui_dom-animation_dist_index_mjs_19abc4bd._.js",
+  "static/chunks/node_modules_next_e04d0b6e._.js",
   "static/chunks/node_modules_react_1cad9b0b._.js",
   "static/chunks/node_modules_react-dom_cjs_react-dom_development_ab7e073c.js",
   "static/chunks/node_modules_react-dom_f14d0471._.js",
@@ -8,8 +8,8 @@ __turbopack_load_page_chunks__("/", [
   "static/chunks/node_modules_tailwind-merge_dist_bundle-mjs_mjs_e33d9f9e._.js",
   "static/chunks/node_modules_@react-aria_interactions_dist_7ed14fbd._.js",
   "static/chunks/node_modules_framer-motion_dist_es_0fc30405._.js",
-  "static/chunks/node_modules_25c38cab._.js",
+  "static/chunks/node_modules_cc21c0f5._.js",
   "static/chunks/[root-of-the-server]__21aadec8._.js",
   "static/chunks/pages_index_5771e187._.js",
-  "static/chunks/pages_index_58b42218._.js"
+  "static/chunks/pages_index_e4633efb._.js"
 ])

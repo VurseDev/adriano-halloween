@@ -1458,6 +1458,7 @@ __turbopack_context__.s({
     "default": (()=>IndexPage)
 });
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/react/jsx-dev-runtime.js [client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$jsx$2f$style$2e$js__$5b$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/styled-jsx/style.js [client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$index$2e$js__$5b$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/react/index.js [client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$heroui$2f$link$2f$dist$2f$chunk$2d$JOT4BT4P$2e$mjs__$5b$client$5d$__$28$ecmascript$29$__$3c$export__link_default__as__Link$3e$__ = __turbopack_context__.i("[project]/node_modules/@heroui/link/dist/chunk-JOT4BT4P.mjs [client] (ecmascript) <export link_default as Link>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$heroui$2f$snippet$2f$dist$2f$chunk$2d$VHMYBPCH$2e$mjs__$5b$client$5d$__$28$ecmascript$29$__$3c$export__snippet_default__as__Snippet$3e$__ = __turbopack_context__.i("[project]/node_modules/@heroui/snippet/dist/chunk-VHMYBPCH.mjs [client] (ecmascript) <export snippet_default as Snippet>");
@@ -1478,52 +1479,29 @@ var _s = __turbopack_context__.k.signature();
 ;
 ;
 ;
+;
 function IndexPage() {
     _s();
+    const [flash, setFlash] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$index$2e$js__$5b$client$5d$__$28$ecmascript$29$__["useState"])(false);
+    // 🎵 Background music
     __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$index$2e$js__$5b$client$5d$__$28$ecmascript$29$__["default"].useEffect({
         "IndexPage.useEffect": ()=>{
-            const cursor = document.createElement("div");
-            cursor.style.position = "fixed";
-            cursor.style.pointerEvents = "none";
-            cursor.style.fontSize = "24px";
-            cursor.textContent = "👻";
-            document.body.appendChild(cursor);
-            const move = {
-                "IndexPage.useEffect.move": (e)=>{
-                    cursor.style.left = e.pageX + "px";
-                    cursor.style.top = e.pageY + "px";
-                }
-            }["IndexPage.useEffect.move"];
-            document.addEventListener("mousemove", move);
-            return ({
-                "IndexPage.useEffect": ()=>document.removeEventListener("mousemove", move)
-            })["IndexPage.useEffect"];
-        }
-    }["IndexPage.useEffect"], []);
-    __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$index$2e$js__$5b$client$5d$__$28$ecmascript$29$__["default"].useEffect({
-        "IndexPage.useEffect": ()=>{
-            const audio = new Audio('/halloween-song.mp3');
+            const audio = new Audio("/halloween-song.mp3");
             audio.loop = true;
-            audio.volume = 0.8;
-            // Function to play when user interacts
+            audio.volume = 0.6;
             const enableAudio = {
                 "IndexPage.useEffect.enableAudio": ()=>{
                     audio.play().catch({
-                        "IndexPage.useEffect.enableAudio": (err)=>{
-                            console.warn("Autoplay prevented:", err);
-                        }
+                        "IndexPage.useEffect.enableAudio": (err)=>console.warn("Autoplay prevented:", err)
                     }["IndexPage.useEffect.enableAudio"]);
-                    // Remove event listeners so it only runs once
                     document.removeEventListener("click", enableAudio);
                     document.removeEventListener("scroll", enableAudio);
                     document.removeEventListener("keydown", enableAudio);
                 }
             }["IndexPage.useEffect.enableAudio"];
-            // Add listeners for any user interaction
             document.addEventListener("click", enableAudio);
             document.addEventListener("scroll", enableAudio);
             document.addEventListener("keydown", enableAudio);
-            // Cleanup on unmount
             return ({
                 "IndexPage.useEffect": ()=>{
                     audio.pause();
@@ -1535,147 +1513,174 @@ function IndexPage() {
             })["IndexPage.useEffect"];
         }
     }["IndexPage.useEffect"], []);
+    // 🍬 Trick or Treat button action
+    const handleTrickOrTreat = ()=>{
+        const sound = new Audio("scream-1.mp3");
+        sound.volume = 1;
+        sound.play().catch((err)=>console.warn("Sound blocked:", err));
+        // vibrate on phones
+        if (navigator.vibrate) navigator.vibrate(200);
+        setFlash(true);
+        setTimeout(()=>setFlash(false), 1500);
+    };
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$layouts$2f$default$2e$tsx__$5b$client$5d$__$28$ecmascript$29$__["default"], {
-        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
-            className: "flex flex-col items-center justify-center gap-4 py-8 md:py-10",
-            children: [
-                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                    className: "inline-block max-w-xl text-center justify-center",
-                    children: [
-                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                            className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$primitives$2e$ts__$5b$client$5d$__$28$ecmascript$29$__["title"])(),
-                            children: "  "
+        children: [
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
+                className: "jsx-89e214199bb1330a" + " " + "flex flex-col items-center justify-center gap-4 py-8 md:py-10 relative overflow-hidden",
+                children: [
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: "jsx-89e214199bb1330a" + " " + "inline-block max-w-xl text-center justify-center",
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                className: "jsx-89e214199bb1330a" + " " + ((0, __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$primitives$2e$ts__$5b$client$5d$__$28$ecmascript$29$__["title"])() || ""),
+                                children: " "
+                            }, void 0, false, {
+                                fileName: "[project]/pages/index.tsx",
+                                lineNumber: 57,
+                                columnNumber: 11
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                className: "jsx-89e214199bb1330a" + " " + ((0, __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$primitives$2e$ts__$5b$client$5d$__$28$ecmascript$29$__["title"])({
+                                    color: "yellow"
+                                }) || ""),
+                                children: "HALLOWEEN 2 REG CINCO "
+                            }, void 0, false, {
+                                fileName: "[project]/pages/index.tsx",
+                                lineNumber: 58,
+                                columnNumber: 11
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("br", {
+                                className: "jsx-89e214199bb1330a"
+                            }, void 0, false, {
+                                fileName: "[project]/pages/index.tsx",
+                                lineNumber: 61,
+                                columnNumber: 11
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "jsx-89e214199bb1330a" + " " + ((0, __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$primitives$2e$ts__$5b$client$5d$__$28$ecmascript$29$__["subtitle"])({
+                                    class: "mt-4"
+                                }) || ""),
+                                children: "Participe Agora!"
+                            }, void 0, false, {
+                                fileName: "[project]/pages/index.tsx",
+                                lineNumber: 62,
+                                columnNumber: 11
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/pages/index.tsx",
+                        lineNumber: 56,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: "jsx-89e214199bb1330a" + " " + "flex flex-col gap-4 mt-4 items-center",
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$heroui$2f$link$2f$dist$2f$chunk$2d$JOT4BT4P$2e$mjs__$5b$client$5d$__$28$ecmascript$29$__$3c$export__link_default__as__Link$3e$__["Link"], {
+                                isExternal: true,
+                                className: "bg-gradient-to-tr from-[#FF705B] to-[#FFB457] text-white shadow-lg hover:shadow-2xl font-semibold px-4 py-2 rounded-full inline-flex items-center justify-center",
+                                href: __TURBOPACK__imported__module__$5b$project$5d2f$config$2f$site$2e$ts__$5b$client$5d$__$28$ecmascript$29$__["siteConfig"].links.login,
+                                children: "Participar"
+                            }, void 0, false, {
+                                fileName: "[project]/pages/index.tsx",
+                                lineNumber: 66,
+                                columnNumber: 11
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                onClick: handleTrickOrTreat,
+                                className: "jsx-89e214199bb1330a" + " " + "bg-black text-white border-2 border-orange-400 px-6 py-3 rounded-full font-semibold hover:bg-orange-600 transition-all duration-200 active:scale-95",
+                                children: "🎃 Surpresa"
+                            }, void 0, false, {
+                                fileName: "[project]/pages/index.tsx",
+                                lineNumber: 75,
+                                columnNumber: 11
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$heroui$2f$link$2f$dist$2f$chunk$2d$JOT4BT4P$2e$mjs__$5b$client$5d$__$28$ecmascript$29$__$3c$export__link_default__as__Link$3e$__["Link"], {
+                                isExternal: true,
+                                className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$heroui$2f$theme$2f$dist$2f$chunk$2d$ZQGNWTBN$2e$mjs__$5b$client$5d$__$28$ecmascript$29$__["button"])({
+                                    variant: "bordered",
+                                    radius: "full"
+                                }),
+                                href: __TURBOPACK__imported__module__$5b$project$5d2f$config$2f$site$2e$ts__$5b$client$5d$__$28$ecmascript$29$__["siteConfig"].links.github,
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$icons$2e$tsx__$5b$client$5d$__$28$ecmascript$29$__["GithubIcon"], {
+                                        size: 20
+                                    }, void 0, false, {
+                                        fileName: "[project]/pages/index.tsx",
+                                        lineNumber: 87,
+                                        columnNumber: 13
+                                    }, this),
+                                    "GitHub"
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/pages/index.tsx",
+                                lineNumber: 82,
+                                columnNumber: 11
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/pages/index.tsx",
+                        lineNumber: 65,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: "jsx-89e214199bb1330a" + " " + "mt-8",
+                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$heroui$2f$snippet$2f$dist$2f$chunk$2d$VHMYBPCH$2e$mjs__$5b$client$5d$__$28$ecmascript$29$__$3c$export__snippet_default__as__Snippet$3e$__["Snippet"], {
+                            hideCopyButton: true,
+                            hideSymbol: true,
+                            variant: "bordered",
+                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                className: "jsx-89e214199bb1330a",
+                                children: [
+                                    "Projeto feito por ",
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$heroui$2f$code$2f$dist$2f$chunk$2d$C3KKIFEX$2e$mjs__$5b$client$5d$__$28$ecmascript$29$__$3c$export__code_default__as__Code$3e$__["Code"], {
+                                        color: "primary",
+                                        children: "VurseDev"
+                                    }, void 0, false, {
+                                        fileName: "[project]/pages/index.tsx",
+                                        lineNumber: 95,
+                                        columnNumber: 33
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/pages/index.tsx",
+                                lineNumber: 94,
+                                columnNumber: 13
+                            }, this)
                         }, void 0, false, {
                             fileName: "[project]/pages/index.tsx",
-                            lineNumber: 65,
+                            lineNumber: 93,
                             columnNumber: 11
-                        }, this),
-                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                            className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$primitives$2e$ts__$5b$client$5d$__$28$ecmascript$29$__["title"])({
-                                color: "yellow"
-                            }),
-                            children: " HALLOWEEN 2 REG CINCO "
-                        }, void 0, false, {
-                            fileName: "[project]/pages/index.tsx",
-                            lineNumber: 66,
-                            columnNumber: 11
-                        }, this),
-                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("br", {}, void 0, false, {
-                            fileName: "[project]/pages/index.tsx",
-                            lineNumber: 67,
-                            columnNumber: 11
-                        }, this),
-                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                            className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$primitives$2e$ts__$5b$client$5d$__$28$ecmascript$29$__["title"])()
-                        }, void 0, false, {
-                            fileName: "[project]/pages/index.tsx",
-                            lineNumber: 68,
-                            columnNumber: 11
-                        }, this),
-                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                            className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$primitives$2e$ts__$5b$client$5d$__$28$ecmascript$29$__["subtitle"])({
-                                class: "mt-4"
-                            }),
-                            children: "Participe Agora!"
-                        }, void 0, false, {
-                            fileName: "[project]/pages/index.tsx",
-                            lineNumber: 71,
-                            columnNumber: 11
-                        }, this)
-                    ]
-                }, void 0, true, {
-                    fileName: "[project]/pages/index.tsx",
-                    lineNumber: 64,
-                    columnNumber: 9
-                }, this),
-                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                    className: "flex gap-3",
-                    children: [
-                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$heroui$2f$link$2f$dist$2f$chunk$2d$JOT4BT4P$2e$mjs__$5b$client$5d$__$28$ecmascript$29$__$3c$export__link_default__as__Link$3e$__["Link"], {
-                            isExternal: true,
-                            className: "bg-gradient-to-tr from-[#FF705B] to-[#FFB457] text-white shadow-lg hover:shadow-2xl font-semibold px-4 py-2 rounded-full inline-flex items-center justify-center   ",
-                            href: __TURBOPACK__imported__module__$5b$project$5d2f$config$2f$site$2e$ts__$5b$client$5d$__$28$ecmascript$29$__["siteConfig"].links.login,
-                            children: "Participar"
-                        }, void 0, false, {
-                            fileName: "[project]/pages/index.tsx",
-                            lineNumber: 77,
-                            columnNumber: 11
-                        }, this),
-                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$heroui$2f$link$2f$dist$2f$chunk$2d$JOT4BT4P$2e$mjs__$5b$client$5d$__$28$ecmascript$29$__$3c$export__link_default__as__Link$3e$__["Link"], {
-                            isExternal: true,
-                            className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$heroui$2f$theme$2f$dist$2f$chunk$2d$ZQGNWTBN$2e$mjs__$5b$client$5d$__$28$ecmascript$29$__["button"])({
-                                variant: "bordered",
-                                radius: "full"
-                            }),
-                            href: __TURBOPACK__imported__module__$5b$project$5d2f$config$2f$site$2e$ts__$5b$client$5d$__$28$ecmascript$29$__["siteConfig"].links.github,
-                            children: [
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$icons$2e$tsx__$5b$client$5d$__$28$ecmascript$29$__["GithubIcon"], {
-                                    size: 20
-                                }, void 0, false, {
-                                    fileName: "[project]/pages/index.tsx",
-                                    lineNumber: 89,
-                                    columnNumber: 13
-                                }, this),
-                                "GitHub"
-                            ]
-                        }, void 0, true, {
-                            fileName: "[project]/pages/index.tsx",
-                            lineNumber: 84,
-                            columnNumber: 11
-                        }, this)
-                    ]
-                }, void 0, true, {
-                    fileName: "[project]/pages/index.tsx",
-                    lineNumber: 76,
-                    columnNumber: 9
-                }, this),
-                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                    className: "mt-8",
-                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$heroui$2f$snippet$2f$dist$2f$chunk$2d$VHMYBPCH$2e$mjs__$5b$client$5d$__$28$ecmascript$29$__$3c$export__snippet_default__as__Snippet$3e$__["Snippet"], {
-                        hideCopyButton: true,
-                        hideSymbol: true,
-                        variant: "bordered",
-                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                            children: [
-                                "Projeto feito por ",
-                                " ",
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$heroui$2f$code$2f$dist$2f$chunk$2d$C3KKIFEX$2e$mjs__$5b$client$5d$__$28$ecmascript$29$__$3c$export__code_default__as__Code$3e$__["Code"], {
-                                    color: "primary",
-                                    children: "VurseDev"
-                                }, void 0, false, {
-                                    fileName: "[project]/pages/index.tsx",
-                                    lineNumber: 98,
-                                    columnNumber: 15
-                                }, this)
-                            ]
-                        }, void 0, true, {
-                            fileName: "[project]/pages/index.tsx",
-                            lineNumber: 96,
-                            columnNumber: 13
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/pages/index.tsx",
-                        lineNumber: 95,
+                        lineNumber: 92,
+                        columnNumber: 9
+                    }, this),
+                    flash && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: "jsx-89e214199bb1330a" + " " + "fixed inset-0 z-[9999] animate-flash pointer-events-none"
+                    }, void 0, false, {
+                        fileName: "[project]/pages/index.tsx",
+                        lineNumber: 102,
                         columnNumber: 11
                     }, this)
-                }, void 0, false, {
-                    fileName: "[project]/pages/index.tsx",
-                    lineNumber: 94,
-                    columnNumber: 9
-                }, this)
-            ]
-        }, void 0, true, {
-            fileName: "[project]/pages/index.tsx",
-            lineNumber: 63,
-            columnNumber: 7
-        }, this)
-    }, void 0, false, {
+                ]
+            }, void 0, true, {
+                fileName: "[project]/pages/index.tsx",
+                lineNumber: 55,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$jsx$2f$style$2e$js__$5b$client$5d$__$28$ecmascript$29$__["default"], {
+                id: "89e214199bb1330a",
+                children: "@keyframes flash{0%,to{opacity:0}20%,40%,60%,80%{opacity:1;background:#fff}10%,30%,50%,70%,90%{opacity:1;background:#000}}.animate-flash{animation:1.5s ease-in-out flash}"
+            }, void 0, false, void 0, this)
+        ]
+    }, void 0, true, {
         fileName: "[project]/pages/index.tsx",
-        lineNumber: 62,
+        lineNumber: 54,
         columnNumber: 5
     }, this);
 }
-_s(IndexPage, "3ubReDTFssvu4DHeldAg55cW/CI=");
+_s(IndexPage, "64IE23q0Hmee5rpmelsNUSh2uDo=");
 _c = IndexPage;
 var _c;
 __turbopack_context__.k.register(_c, "IndexPage");

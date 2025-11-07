@@ -80,6 +80,8 @@
 
 @layer theme {
   :root, :host {
+    --color-orange-400: oklch(75% .183 55.934);
+    --color-orange-600: oklch(64.6% .222 41.116);
     --color-blue-600: oklch(54.6% .245 262.881);
     --color-black: #000;
     --color-white: #fff;
@@ -676,6 +678,10 @@
 
   .z-\[100\] {
     z-index: 100;
+  }
+
+  .z-\[9999\] {
+    z-index: 9999;
   }
 
   .order-1 {
@@ -2275,6 +2281,10 @@
     border-color: hsl(var(--heroui-foreground-400) / 1);
   }
 
+  .border-orange-400 {
+    border-color: var(--color-orange-400);
+  }
+
   .border-primary {
     border-color: hsl(var(--heroui-primary) / 1);
   }
@@ -2459,6 +2469,10 @@
     .bg-background\/80 {
       background-color: color-mix(in oklab, hsl(var(--heroui-background) / 1) 80%, transparent);
     }
+  }
+
+  .bg-black {
+    background-color: var(--color-black);
   }
 
   .bg-content1 {
@@ -6285,6 +6299,12 @@
   }
 
   @media (hover: hover) {
+    .hover\:bg-orange-600:hover {
+      background-color: var(--color-orange-600);
+    }
+  }
+
+  @media (hover: hover) {
     .hover\:bg-primary-50:hover {
       background-color: hsl(var(--heroui-primary-50) / 1);
     }
@@ -6634,6 +6654,13 @@
   .focus-visible\:outline-solid:focus-visible {
     --tw-outline-style: solid;
     outline-style: solid;
+  }
+
+  .active\:scale-95:active {
+    --tw-scale-x: 95%;
+    --tw-scale-y: 95%;
+    --tw-scale-z: 95%;
+    scale: var(--tw-scale-x) var(--tw-scale-y);
   }
 
   .active\:bg-default-200:active {
