@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Atlas Warehouse
 
 [![Tamanho do repositório](https://img.shields.io/github/repo-size/VurseDev/atlas-warehouse?style=flat-square)](https://github.com/VurseDev/atlas-warehouse)
@@ -218,3 +219,6 @@ volumes:
 
 Observações finais
 Se você compartilhar o package.json eu posso ajustar automaticamente as seções de dependências, scripts e badges para refletirem exatamente o estado atual do repositório.
+=======
+# adriano-halloween
+>>>>>>> 3d42e3fe9141488961d8f99889cb202fd2d1a325
