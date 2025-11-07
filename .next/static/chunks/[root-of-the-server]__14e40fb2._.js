@@ -1523,7 +1523,7 @@ function IndexPage() {
             bgAudio.currentTime = 0;
         }
         // Play trick sound immediately
-        const trickSound = new Audio("/trick-or-treat.mp3");
+        const trickSound = new Audio("/scream-1.mp3");
         trickSound.volume = 0.9;
         trickSound.currentTime = 0;
         trickSound.play().catch((err)=>console.warn("Trick sound blocked:", err));
